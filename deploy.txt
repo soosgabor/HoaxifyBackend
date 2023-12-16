@@ -1,0 +1,6 @@
+Log in to Render.com using your GitHub account.
+Click on "New > Web Service."
+Connect the GitHub repository you've just created to your Render account.
+On the following screen, give your project a name, accept all defaults and the free tier, and click "Deploy."
+
+https://dev.to/zipy/best-node-js-free-hosting-services-out-there-29kc
