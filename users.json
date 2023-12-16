@@ -1,0 +1,82 @@
+[
+  {
+    "_id": {
+      "$oid": "63edd7cb506612acfe75f9e7"
+    },
+    "username": "Barsa",
+    "email": "barsa@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "63fa4f68257caab7c7af123b"
+    },
+    "username": "Felhő",
+    "email": "felho@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "63fb630beb70791c7c4f0877"
+    },
+    "username": "Éden",
+    "email": "eden@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "6424a299e1f9ebbc42ccebe1"
+    },
+    "username": "Erdőcske",
+    "email": "erdocske@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "644d2cf751f215b6b94a0bc0"
+    },
+    "username": "Mazsola",
+    "email": "mazsola@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "644d2d0551f215b6b94a0bc2"
+    },
+    "username": "Pötyi",
+    "email": "potyi@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "644d2d0f51f215b6b94a0bc4"
+    },
+    "username": "Zene",
+    "email": "zene@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "644d2d0f51f215b6b94a0bc6"
+    },
+    "username": "Vackor",
+    "email": "vackor@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "644d2d0f51f215b6b94a0bc8"
+    },
+    "username": "Dzsenifer",
+    "email": "dzsenifer@mail.com",
+    "password": "123456"
+  },
+  {
+    "_id": {
+      "$oid": "644d2d0f51f215b6b94a0bca"
+    },
+    "username": "Armandó",
+    "email": "armando@mail.com",
+    "password": "123456"
+  }
+]
