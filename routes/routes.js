@@ -1,4 +1,5 @@
 const express = require("express");
+const crypto = require('crypto')
 const User = require("../models/User");
 const router = express.Router();
 
@@ -43,7 +44,7 @@ router.get("/users", async (req, res) => {
 
     total_pages = Math.ceil(user_count / limit);
 
-    const startIndex = (page-1) * limit;
+    const startIndex = (page - 1) * limit;
     query = await User.find().skip(startIndex).limit(limit);
     res.json({
       content: query,
@@ -61,7 +62,6 @@ router.get("/users", async (req, res) => {
 const sendTokenResponse = (user, statusCode, res) => {
   // Token létrehozása
   const token = user.getSignedJwtToken();
-
   const options = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
@@ -79,11 +79,40 @@ const sendTokenResponse = (user, statusCode, res) => {
 //Get User by Id
 router.get("/user/:id", async (req, res) => {
   try {
-    
     const user = await User.findById(req.params.id);
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+//Login User
+router.post("/auth", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    // email és jelszó ellenőrzése
+    if (!email || !password) {
+      return res.json( {msg: "Kérem adjon meg egy email címet és egy jelszót!"})
+    }
+
+    // A felhasználó megkeresése az adatbázisban
+    const user = await User.findOne({ email }).select("password");
+
+    if (!user) {
+      return res.json( {msg: "Érvénytelen email vagy jelszó!"})
+    }
+
+    // A jelszó megfelelőségének ellenőrzése
+    const isMatch = await user.matchPassword(password);
+    console.log(isMatch);
+    if (!isMatch) {
+      return res.json( {msg: "Érvénytelen email vagy jelszó!"})
+    }
+
+    sendTokenResponse(user, 200, res);
+  } catch (error) {
+    res.status(400).json({ success: false, msg: error.message });
   }
 });
 
